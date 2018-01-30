@@ -1,0 +1,6 @@
+.ipynb_checkpoints
+.DS_Store
+
+document-categorization/protocollo_2017_vectorized.csv
+document-categorization/*.json
+document-categorization/protocollo-vectorization-Copy1.ipynb
