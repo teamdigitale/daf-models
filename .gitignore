@@ -4,3 +4,5 @@
 document-categorization/protocollo_2017_vectorized.csv
 document-categorization/*.json
 document-categorization/protocollo-vectorization-Copy1.ipynb
+document-categorization/protocollo_2017_vectorized_chars.csv
+document-categorization/protocollo_2017_vectorized_no_stopwords.csv

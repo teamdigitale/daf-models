@@ -54,12 +54,23 @@ We are going to evaluate algorithms for:
 
 Since we are going to apply deep-learning methods we need to transform the raw text into a numeric tensors. We are applying *text vectorization* to transform text into numeric tensors. In particular, we:
 
-1. segment text into words, and transform each word into a vector
-2. segment text into characters, and transform each character into a vector
+1. [segment text into words, and transform each word into a vector](./protocollo-vectorization-words.ipynb)
+2. [segment text into words, remove stopwords, and trasnform each word into a vector](./protocollo-vectorization-words-stopwords.ipynb)
+3. [segment text into characters, and transform each character into a vector](./protocollo-vectorization-chars.ipynb)
 
 This will be done by using word embeddings.
-Since we apply neural base methods we don't need to remove stop-words, but we can evaluate
+Since we apply neural base methods we don't need to remove stop-words, but we can evaluate what is the impact of stopwords removal in the classification task.
 
+### Split the Dataset
+
+Basing on the size of the dataset we are going to split it into *training, validation and test set*.
+
+### Algorithms selection and hyperparameters tuning
+
+
+### Test the algorithms
+
+### Results Discussion
 
 
 # References
