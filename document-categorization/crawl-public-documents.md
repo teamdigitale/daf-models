@@ -29,6 +29,14 @@ Each document has a detail page from which we can download the pdf documents.
 - q=inmeta%3AID_TIPO_PRATICA%3DMON+AND+inmeta%3AALLEGATO_DESCRIZIONE%3Dvoid
 - sort=meta%3ACODICE_PRATICA%3AD
 
-> example "atti giunta" http://www.regione.toscana.it/bancadati/search?site=atti&client=fend_json&output=xml_no_dtd&getfields=*&ulang=it&ie=UTF-8&proxystylesheet=fend_json&start=0&num=10&filter=0&rc=1&q=inmeta%3AID_TIPO_PRATICA%3DAD+AND+inmeta%3AALLEGATO_DESCRIZIONE%3Dvoid&sort=meta%3ACODICE_PRATICA%3AD
+> example "atti giunta"
+> http://www.regione.toscana.it/bancadati/search?site=atti&client=fend_json&output=xml_no_dtd&getfields=*&ulang=it&ie=UTF-8&proxystylesheet=fend_json&start=0&num=10&filter=0&rc=1&q=inmeta%3AID_TIPO_PRATICA%3DAD+AND+inmeta%3AALLEGATO_DESCRIZIONE%3Dvoid&sort=meta%3ACODICE_PRATICA%3AD
 
-> example "atto presidente"
+> example "atti presidente"
+> http://www.regione.toscana.it/bancadati/search?site=atti&client=fend_json&output=xml_no_dtd&getfields=*&ulang=it&ie=UTF-8&proxystylesheet=fend_json&start=0&num=10&filter=0&rc=1&q=inmeta%3AID_TIPO_PRATICA%3DPG+AND+inmeta%3AALLEGATO_DESCRIZIONE%3Dvoid&sort=meta%3ACODICE_PRATICA%3AD
+
+> example "atti dei dirigenti"
+> http://www.regione.toscana.it/bancadati/search?site=atti&client=fend_json&output=xml_no_dtd&getfields=*&ulang=it&ie=UTF-8&proxystylesheet=fend_json&start=0&num=10&filter=0&rc=1&q=inmeta%3AID_TIPO_PRATICA%3DMON+AND+inmeta%3AALLEGATO_DESCRIZIONE%3Dvoid&sort=meta%3ACODICE_PRATICA%3AD
+
+> example "tutti gli atti"
+> http://www.regione.toscana.it/bancadati/search?site=atti&client=fend_json&output=xml_no_dtd&getfields=*&ulang=it&ie=UTF-8&proxystylesheet=fend_json&start=0&num=10&filter=0&rc=1&q=inmeta%3AALLEGATO_DESCRIZIONE%3Dvoid&sort=meta%3ACODICE_PRATICA%3AD
