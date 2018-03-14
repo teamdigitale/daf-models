@@ -12,3 +12,4 @@ document-categorization/regione-toscana/atti_dirigenti/dirigenti_processed.json
 document-categorization/regione-toscana/atti_dirigenti/proponenti_processed.json
 document-categorization/regione-toscana/atti_dirigenti/strutture.json
 document-categorization/regione-toscana/atti_dirigenti/strutture_processed.json
+document-categorization/regione-toscana/*.json
