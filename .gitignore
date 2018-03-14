@@ -6,3 +6,9 @@ document-categorization/*.json
 document-categorization/protocollo-vectorization-Copy1.ipynb
 document-categorization/protocollo_2017_vectorized_chars.csv
 document-categorization/protocollo_2017_vectorized_no_stopwords.csv
+document-categorization/data-wrangling-Copy1.ipynb
+document-categorization/regione-toscana/atti_dirigenti/dirigenti.json
+document-categorization/regione-toscana/atti_dirigenti/dirigenti_processed.json
+document-categorization/regione-toscana/atti_dirigenti/proponenti_processed.json
+document-categorization/regione-toscana/atti_dirigenti/strutture.json
+document-categorization/regione-toscana/atti_dirigenti/strutture_processed.json
