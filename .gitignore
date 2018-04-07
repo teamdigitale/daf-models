@@ -14,3 +14,7 @@ document-categorization/regione-toscana/atti_dirigenti/strutture.json
 document-categorization/regione-toscana/atti_dirigenti/strutture_processed.json
 document-categorization/regione-toscana/*.json
 dataset-dirigenti.pkl
+
+*.gz
+*.pkl
+tuscany-acts-analysis/3-models/logs/*
