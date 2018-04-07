@@ -38,5 +38,5 @@ The posts will focus on:
 7. how to deploy the model as a web service.
 
 # References
-- [1](https://arxiv.org/abs/1306.6802)
-- [2](https://arxiv.org/abs/1705.11105)
+- [Evaluation Measures for Hierarchical Classification: a unified view and novel approaches](https://arxiv.org/abs/1306.6802)
+- [HiNet: Hierarchical Classification with Neural Network](https://arxiv.org/abs/1705.11105)
