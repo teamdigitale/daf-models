@@ -38,5 +38,5 @@ The posts will focus on:
 7. how to deploy the model as a web service.
 
 # References
-- [1(https://arxiv.org/abs/1306.6802)
+- [1](https://arxiv.org/abs/1306.6802)
 - [2](https://arxiv.org/abs/1705.11105)
