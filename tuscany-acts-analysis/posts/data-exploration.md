@@ -7,29 +7,12 @@ df = pd.read_pickle('../data/atti-dirigenti.pkl')
 df.shape
 ```
 The dataset is compose by 153206 rows and 13 columns.
-
+Below you can see the first five columns of the dataset.
 
 ```python
 df.head(5)
 ```
 
-
-
-
-<!-- <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style> -->
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -135,31 +118,17 @@ df.head(5)
 </div>
 
 
+## Feature Describe
 
-Let us deescribe the features
+From the outcome of the describe we can notice that:
+1. there are some duplicates by `CODICE_PRATICA`
+2. the person 005549 occurs 8022 time as signer for acts while the most frequent office is 50073
 
 
 ```python
 df.describe(include='all')
 ```
 
-
-
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -392,17 +361,11 @@ df.describe(include='all')
 </table>
 </div>
 
+As task, we are going to remove duplicates for `CODICE_PRATICA`
 
+### Drop duplicates by `CODICE_PRATICA`
 
-From the outcome of the describe we can notice that:
-1. there are some duplicates by `CODICE_PRATICA`
-2. the person 005549 occurs 8022 time as signer for acts while the most frequent office is 50073
-
-As tasks:
-- we are going to remove duplicates for `CODICE_PRATICA`
-
-#### Drop duplicates by `CODICE_PRATICA`
-
+We can drop the duplicates in pandas by calling the function drop on the column `COODICE_PRATICA`.
 
 ```python
 df_drop = df.drop_duplicates(subset=['CODICE_PRATICA'])
@@ -411,20 +374,16 @@ df = df_drop
 
 ### Replace office id with names
 
-Let us merge the index with the name of the offices.
-
+Moreover, we can replace the office id to names that can give as more insight about the offices.
 
 ```python
 df_office = pd.read_json('../data/strutture_processed.json')
 df_office['ID'] = df_office['ID'].astype(str)
-```
 
-
-```python
 id_office_map = df_office.set_index(df_office['ID']).drop(['ID'], axis=1).to_dict()['NOME']
 ```
 
-We check what are the offices that do not have a match
+We check what are the offices that do not have a match.
 
 
 ```python
@@ -441,18 +400,13 @@ for i in df['UFFICIO_DG'].unique():
 ```
 
 From the name of the offices it is interesting to see that there are:
-- offices that changed the name
-- there are some abbreviations
+- offices that changed the name,
+- there are some abbreviations which are wrongly considered as different office.
 
-we will create a replacement map to deal with these problems
-
+We create a replacement map to deal with these issues
 
 ```python
-matched_id_name
-```
-
-
-
+print(matched_id_name)
 
     {'50125': 'DIREZIONE ISTRUZIONE E FORMAZIONE',
      '50117': 'DIREZIONE AGRICOLTURA E SVILUPPO RURALE',
@@ -488,7 +442,7 @@ matched_id_name
      '50200': 'DIREZIONE GENERALE GOVERNO DEL TERRITORIO',
      '50026': 'DIREZIONE GENERALE SEGRETERIE ORGANI POLITICI DELLA GIUNTA'}
 
-
+```
 
 
 ```python
@@ -502,28 +456,22 @@ to_replace = {
     '50121': '50201'
 }
 ```
-
+Thus,
 - We can replace the offices with wrong names
-- we reaplace the codes with the canonical names of the offices
+- we replace the codes with the canonical names of the offices
 
 
 ```python
 df_replaced = df
 df_replaced['UFFICIO_DG'] = df['UFFICIO_DG'].replace(to_replace)
+df = df_replaced.replace(matched_id_name)
 ```
 
-
-```python
-df= df_replaced.replace(matched_id_name)
-```
-
+Now if the print the first 5 records of the dataframe we check that attributed `UFFICIO_DG` as an expressive name.
 
 ```python
 df.head()
 ```
-
-
-
 
 <div>
 <style scoped>
