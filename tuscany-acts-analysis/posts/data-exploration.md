@@ -659,27 +659,27 @@ plt.show()
 ![png](output_28_0.png)
 
 ```
-UFFICIO_DG
-D.G. COMPETITIVITA' DEL SISTEMA REGIONALE E SVILUPPO D    0.090689
-DIREZIONE AGRICOLTURA E SVILUPPO RURALE                   0.080207
-DIREZIONE GENERALE POLITICHE TERRITORIALI E AMBIENTALI    0.077531
-DIREZIONE ORGANIZZAZIONE E SISTEMI INFORMATIVI            0.075065
-DIREZIONE GENERALE SVILUPPO ECONOMICO                     0.063783
-DIREZIONE DIRITTI DI CITTADINANZA E COESIONE SOCIALE      0.060857
-D.G. PRESIDENZA                                           0.054377
-POLITICHE AMBIENTALI, ENERGIA E CAMBIAMENTI CLIMATICI     0.049936
-DIREZIONE GENERALE DIRITTO ALLA SALUTE E POLITICHE DI     0.049057
-01937                                                     0.046965
-DIREZIONE GENERALE POLITICHE FORMATIVE, BENI E ATTIVIT    0.039494
-DIREZIONE DIFESA DEL SUOLO E PROTEZIONE CIVILE            0.033184
-01934                                                     0.032291
-DIREZIONE ISTRUZIONE E FORMAZIONE                         0.027916
-01943                                                     0.025142
-D.G.  AVVOCATURA                                          0.022157
-01946                                                     0.021954
-01025                                                     0.019875
-01928                                                     0.017776
-DIREZIONE GENERALE BILANCIO E FINANZE                     0.017212
+  UFFICIO_DG
+  D.G. COMPETITIVITA' DEL SISTEMA REGIONALE E SVILUPPO D    0.090689
+  DIREZIONE AGRICOLTURA E SVILUPPO RURALE                   0.080207
+  DIREZIONE GENERALE POLITICHE TERRITORIALI E AMBIENTALI    0.077531
+  DIREZIONE ORGANIZZAZIONE E SISTEMI INFORMATIVI            0.075065
+  DIREZIONE GENERALE SVILUPPO ECONOMICO                     0.063783
+  DIREZIONE DIRITTI DI CITTADINANZA E COESIONE SOCIALE      0.060857
+  D.G. PRESIDENZA                                           0.054377
+  POLITICHE AMBIENTALI, ENERGIA E CAMBIAMENTI CLIMATICI     0.049936
+  DIREZIONE GENERALE DIRITTO ALLA SALUTE E POLITICHE DI     0.049057
+  01937                                                     0.046965
+  DIREZIONE GENERALE POLITICHE FORMATIVE, BENI E ATTIVIT    0.039494
+  DIREZIONE DIFESA DEL SUOLO E PROTEZIONE CIVILE            0.033184
+  01934                                                     0.032291
+  DIREZIONE ISTRUZIONE E FORMAZIONE                         0.027916
+  01943                                                     0.025142
+  D.G.  AVVOCATURA                                          0.022157
+  01946                                                     0.021954
+  01025                                                     0.019875
+  01928                                                     0.017776
+  DIREZIONE GENERALE BILANCIO E FINANZE                     0.017212
 ```
 
 ### Acts per Offices and per Year
