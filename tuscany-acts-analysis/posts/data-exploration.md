@@ -1,44 +1,12 @@
+# Data Exploration
 
-
-```python
-import pandas as pd
-import numpy as np
-
-import matplotlib.pyplot as plt
-plt.ioff()
-import seaborn as sns
-sns.set_style("whitegrid")
-from scipy import stats, integrate
-from scipy.stats import kendalltau
-
-import warnings
-warnings.filterwarnings('ignore')
-
-# %matplotlib notebook
-
-plt.rcParams['figure.figsize'] = (8, 8)
-```
-
-
-```python
-def label_rotation(ax, angle):
-    for tick in ax.get_xticklabels():
-        tick.set_rotation(45)
-    return ax
-```
-
+Before to start building the classifier we are going to perform some exploration on the dataset.
 
 ```python
 df = pd.read_pickle('../data/atti-dirigenti.pkl')
 df.shape
 ```
-
-
-
-
-    (153206, 13)
-
-
+The dataset is compose by 153206 rows and 13 columns.
 
 
 ```python
@@ -48,7 +16,7 @@ df.head(5)
 
 
 
-<div>
+<!-- <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
         vertical-align: middle;
@@ -61,7 +29,7 @@ df.head(5)
     .dataframe thead th {
         text-align: right;
     }
-</style>
+</style> -->
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -473,7 +441,7 @@ for i in df['UFFICIO_DG'].unique():
 ```
 
 From the name of the offices it is interesting to see that there are:
-- offices that changed the name 
+- offices that changed the name
 - there are some abbreviations
 
 we will create a replacement map to deal with these problems
@@ -683,7 +651,7 @@ As first step we want visualize the distrubition of the acts per:
 - year
 - employee
 - office
-    
+
 ### Acts Per Year
 
 
@@ -748,7 +716,7 @@ plt.show()
 ![png](output_25_0.png)
 
 
-Here we can see that the distribution follows a beta distribution, which means that there is a 
+Here we can see that the distribution follows a beta distribution, which means that there is a
 
 ### Distribution of Acts per Office
 
@@ -1682,7 +1650,7 @@ for i in df_office_year.index:
 ```
 
 From the name of the offices it is interesting to see that there are:
-- offices that changed the name 
+- offices that changed the name
 - there are some abbreviations
 
 we will create a replacement map to deal with these problems
@@ -1866,7 +1834,7 @@ print('Last 10 \n',acts_per_office[-10:])
 ```
 
     distribution acts per Ufficio DG
-    Top 10 
+    Top 10
      UFFICIO_DG
     D.G. COMPETITIVITA' DEL SISTEMA REGIONALE E SVILUPPO D    13826
     DIREZIONE AGRICOLTURA E SVILUPPO RURALE                   12228
@@ -1879,7 +1847,7 @@ print('Last 10 \n',acts_per_office[-10:])
     DIREZIONE GENERALE DIRITTO ALLA SALUTE E POLITICHE DI      7479
     01937                                                      7160
     Name: CODICE_PRATICA, dtype: int64
-    Last 10 
+    Last 10
      UFFICIO_DG
     01923                                                           1085
     ALTRI UFFICI                                                     790
@@ -1902,7 +1870,7 @@ df_person = df[df['PERSONA'] == '005549']
 acts_per_year_person = df_person.groupby([df_person['DATA_ATTO'].dt.year])['CODICE_PRATICA'].count()
 
 fig, ax = plt.subplots()
-sns.barplot(acts_per_year_person.index, acts_per_year_person.values, palette="BuGn_d", 
+sns.barplot(acts_per_year_person.index, acts_per_year_person.values, palette="BuGn_d",
             ax=ax, order=acts_per_year_person.index)
 label_rotation(ax, 45)
 fig.set_size_inches(10,6)
