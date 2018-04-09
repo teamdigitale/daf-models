@@ -612,19 +612,21 @@ From another point of view is interesting to see the distribution of acts per em
 ```python
 acts_per_person = df.groupby([df['PERSONA']])['CODICE_PRATICA'].count().sort_values(ascending=False)
 print(acts_per_person[:10])
+```
 
-    acts distribution per person
-    PERSONA
-    005549    7989
-    020411    4316
-    005045    3816
-    015534    3778
-    007505    3060
-    014002    2645
-    013692    2103
-    005642    2013
-    005070    1943
-    017792    1836
+```
+acts distribution per person
+PERSONA
+005549    7989
+020411    4316
+005045    3816
+015534    3778
+007505    3060
+014002    2645
+013692    2103
+005642    2013
+005070    1943
+017792    1836
 ```
 
 Now, we scale the count of documents in the range [0:1] since we want to analyze the distribution of the total number of documents with respect the employees.
