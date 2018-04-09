@@ -582,13 +582,15 @@ df.head()
 
 ## Data Exploration
 
-As first step we want visualize the distrubition of the acts per:
+Now we can perform some aggregation to visualize the distribution of the documents per:
 - year
 - employee
 - office
 
 ### Acts Per Year
 
+Let's start by displaying the number of documents per year.
+The chart below is interesting since shows  an increase of acts for the years 2016 and 2017. This is because starting from 2016 district offices were aggregated into regional offices.
 
 ```python
 acts_per_year = df.groupby([df['DATA_ATTO'].dt.year])['CODICE_PRATICA'].count()
@@ -600,17 +602,12 @@ fig.set_size_inches(10,6)
 plt.title('Distribution Acts per Year')
 plt.show(fig)
 ```
-
-
 ![png](output_21_0.png)
 
 
-The distribution of the acts per year shows that there is an increase of acts for the years 2016 and 2017.
-This is because in 2016 there was a grouping of the regional districts.
+### Acts Per Employee
 
 From another point of view is interesting to see the distribution of acts per person.
-
-### Acts Per Employee
 
 
 ```python
