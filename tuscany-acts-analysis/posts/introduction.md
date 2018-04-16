@@ -1,14 +1,14 @@
 # So, What can AI and Machine Learning do for Italian Public Administration?
 
-Many public administrations (P.A.) in Italy still operate in an analogue world. They have several stand-alone solutions for data management and a plethora of offices that handle human resources, regulation, citizen requests, incoming and out-coming documents, payments and everything else correlated to public services.
+Several Public Administrations (P.A.) in Italy still operate in an analogue world. They have several stand-alone solutions for data management and a plethora of offices that handle human resources, regulation, citizen requests, incoming and out-coming documents, payments and everything else correlated to public services.
 All this cost to public employee time and resource, while to public citizen and private companies time and money.
-In P.A. offices, there are a lot of everyday tasks that can be automated and where it can be possible leveraging [Machine Learning](https://en.wikipedia.org/wiki/Machine_learning) and [Artificial Intelligence](https://en.wikipedia.org/wiki/Artificial_intelligence) to let the P.A. become more effective, efficient, and responsive. relate to that, a recent article from [Il Sole 24 Ore](http://www.infodata.ilsole24ore.com/2017/07/18/quanto-efficace-la-pubblica-amministrazione-italiana-lindice-oxford/) shows that Italy is at the 27th place with respect to the International Civil Service Effectiveness Index.
+In P.A. offices, there are everyday tasks that can be automated and where it can be possible to leverage [Machine Learning](https://en.wikipedia.org/wiki/Machine_learning) and [Artificial Intelligence](https://en.wikipedia.org/wiki/Artificial_intelligence) to become more effective, efficient, and responsive. Relate to that, a recent article from [Il Sole 24 Ore](http://www.infodata.ilsole24ore.com/2017/07/18/quanto-efficace-la-pubblica-amministrazione-italiana-lindice-oxford/) shows that Italy is at the 27th place with respect to the International Civil Service Effectiveness Index.
 
 One question that could arise is `Are we proposing that Artificial Intelligence should replace public employees?` Of course not!, what we want is that machines address repetitive tasks and the employees work on other activities where human capabilities are required.
 
 > We envision a society where humans take decision supported by data and not by subjective analysis.
 
-With respect this goal as members of the [Digital Transformation Team](https://teamdigitale.governo.it/en/) we want to contribute by
+With respect to this goal as members of the [Digital Transformation Team](https://teamdigitale.governo.it/en/) we want to contribute by
 sharing code, trained models, and tutorials to generate conversations and build value for diverse stakeholders of the public life. The open-sourcing of AI tools are likely to spur rapid innovation in P.A., where there is a need of updating and learning from each other.
 
 ### AI and Machine Learning for the P.A.
@@ -24,7 +24,7 @@ There are four clear techniques that be deployed to improve the P.A.:
 
 Our first contribution is related to automatic classification of documents. In particular, we address the problem of classify the documents received by `Regione Toscana` using the text contained in their subject. Only in 2017 `Regione Toscana` received 302734 documents that has to be manually labeled and dispatched to 19 directive offices. Moreover, each office as a hierarchy of sub-offices and documents should be dispatched accordingly to that. This is a case of hierarchical [1](https://en.wikipedia.org/wiki/Hierarchical_classifier) multi-label classification [1](https://en.wikipedia.org/wiki/Multi-label_classification), [2](http://scikit-learn.org/stable/modules/multiclass.html) for which one sample can be assigned to more than one class.
 
-The **goal** is to create a classifier exposed via [rest api](https://en.wikipedia.org/wiki/Representational_state_transfer) that can be use to automatically categorize documents. This allows `Regione Toscana` to save a lot of time of their employees while paying a small price in terms of wrongly classified documents.
+The **goal** is to create a classifier exposed via [rest api](https://en.wikipedia.org/wiki/Representational_state_transfer) that can be used to automatically categorize documents. This allows `Regione Toscana` to save a lot of time of their employees while paying a small price in terms of wrongly classified documents.
 
 Since these documents contains sensitive data, but we still want to share our exploration the subsequent posts uses as dataset built from all the [official documents published by Regione Toscana](http://www.regione.toscana.it/regione/leggi-atti-e-normative/atti-regionali). These are related to the same offices, while focusing on published documents and not on received.
 

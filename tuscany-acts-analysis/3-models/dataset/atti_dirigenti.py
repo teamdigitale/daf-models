@@ -5,6 +5,7 @@ import nltk
 from nltk.corpus import stopwords
 import string
 import os
+import tensorflow as tf
 
 
 nltk.download('stopwords')
