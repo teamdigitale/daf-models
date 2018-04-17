@@ -110,9 +110,7 @@ def healtz():
 @app.route('/predict', methods=['POST'])
 def predict():
     data = {'success': False}
-
     content = request.get_json()
-
     try:
         if content:
             if 'sentence' in content:
@@ -125,8 +123,8 @@ def predict():
 
                 predicted_class = np.argmax(predictions)
 
-                data['prediction'] =  str(index_label[predicted_class])[:5]
-                data['prediction_prob'] = "{:.10f}".format(predictions[0, predicted_class])
+                data['prediction'] =  str(index_label[predicted_class])
+                data['prediction_prob'] = "{:.10f}".format(predictions[0, predicted_class])[:5]
                 data['prediction_probabilities'] = predictions_dict
                 data['success'] = True
             else:

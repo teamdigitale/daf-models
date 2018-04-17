@@ -4,14 +4,16 @@ import { Table } from 'reactstrap';
 export default class PredictionsTable extends React.Component {
 
   render(){
+    let array = [["No Results", "1.0"]];
 
-    const array = Object.keys(this.props.predictions).map(key => {
-      return [key, this.props.predictions[key]];
-    });
-
-    array.sort((a,b) => {
-      return b[1] - a[1];
-    });
+    if (this.props.predictions){
+        array = Object.keys(this.props.predictions).map(key => {
+            return [key, this.props.predictions[key]];
+        });
+        array.sort((a,b) => {
+            return b[1] - a[1];
+        });
+    }
 
     return (
       <Table>
@@ -23,11 +25,11 @@ export default class PredictionsTable extends React.Component {
         </thead>
         <tbody>
           {
-            array.map((a) => {
-              return <tr>
-                <td>{a[0]}</td>
-                <td>{a[1]}</td>
-              </tr>
+            array.map((a, id) => {
+              return <tr key={id}>
+                        <td>{a[0]}</td>
+                        <td>{a[1]}</td>
+                      </tr>
             })
         }
         </tbody>
