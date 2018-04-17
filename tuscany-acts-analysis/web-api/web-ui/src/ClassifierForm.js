@@ -15,8 +15,16 @@ export default class ClassifierForm extends React.Component {
 
   handleSubmit(event) {
     event.preventDefault();
-    console.log(window.location);
-    fetch('/predict', {
+
+    console.log(process.env.NODE_ENV);
+
+    let url = "/predict";
+
+    if (process.env.NODE_ENV === "development"){
+      url = "http://localhost:5000/predict"
+    }
+
+    fetch(url, {
       method: 'POST',
       headers: {
         'Accept': 'application/json',
@@ -33,14 +41,14 @@ export default class ClassifierForm extends React.Component {
           response: data,
           isLoaded: true
         });
-        console.log(data)
+        console.log(data);
       },
       (error) => {
         this.setState({
           response: error,
           isLoaded: true
         });
-        console.log(error)
+        console.log(JSON.stringify(error))
     });
   }
 
@@ -59,7 +67,7 @@ export default class ClassifierForm extends React.Component {
             </div>
             <textarea className="form-control" id="sentence" rows="3" value={this.state.sentence} onChange={this.handleChange}/>
           </div>
-          <button className="btn btn-primary">Classify</button>
+          <button className="btn btn-primary" >Classify</button>
         </form>
       )
     } else {
@@ -79,7 +87,7 @@ export default class ClassifierForm extends React.Component {
             </div>
           </div>
           <div className="row">
-            <div className="col"></div>
+            <div className="col"><p></p></div>
           </div>
           <div className="row">
             <h4>Predictions</h4>

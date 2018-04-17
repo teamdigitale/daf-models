@@ -10,8 +10,8 @@ class App extends Component {
       <div className="App">
         <header className="bg-primary">
           <div className="container text-white pt-6 pb-6">
-            <h1 className="display-1 display-1 mb-0">Text Classification App</h1>
-            <p className="m-0 ml-1">This pages shows a demo of an automatic classifier of the administrative acts published by Regione Toscana</p>
+            <h4 className="display-3 mb-0">Regional Acts Classifier</h4>
+            <h5 className="m-0 ml-1">This pages shows a demo of an automatic classifier of the administrative acts published by Regione Toscana</h5>
           </div>
         </header>
 
@@ -51,37 +51,50 @@ class App extends Component {
           <section >
             <h2 id="approach" className="pt-5 pb-3">Approach</h2>
             <div className="">
-                In order to build the classifier we crawled 152455 documents, which where split into training, validation and test set. The model is built using a neural network inmplemented in
-                <a href="https://keras.io/">Keras</a>. The steps done to built the model were:
+                <p>In order to build the classifier we crawled 152455 documents, which were split into training, validation and test set. The model is built using a neural network implemented in <a href="https://keras.io/">Keras</a>. The steps done to build the model were:</p>
                   <ol>
-                    <li>data wrangling and exploration</li>
-                    <li>to build a <a href="">basic classifier</a> that uses Neural Networks</li>
-                    <li><a href="">how to use regularization</a> to improve the model accuracy while addressing over-fitting </li>
-                    <li>the effect of <a href="">distributed representations of words </a> to improve the models</li>
-                    <li>analyze the effect of using sequence of text <a href=""></a></li>
-                    <li><a href="">Hyper-Parameters Optimization</a></li>
-                    <li>how to deploy the model <a href="as a web service"></a></li>
+                      <li><a href="https://github.com/teamdigitale/daf-deep-learning/blob/master/tuscany-acts-analysis/1-data-wrangling/1-data-exploration-atti-dirigenti.ipynb">data wrangling and exploration</a></li>
+                    <li>to build a <a href="https://github.com/teamdigitale/daf-deep-learning/blob/master/tuscany-acts-analysis/3-models/2-classifier-base-dataset.ipynb">basic classifier</a> that uses Neural Networks</li>
+                    <li><a href="https://github.com/teamdigitale/daf-deep-learning/blob/master/tuscany-acts-analysis/3-models/3-classifier-regularization-dataset.ipynb">how to use regularization</a> to improve the model accuracy while addressing overfitting </li>
+                    <li>the effect of <a href="https://github.com/teamdigitale/daf-deep-learning/blob/master/tuscany-acts-analysis/3-models/4-classifier-embeddings-dataset.ipynb">distributed representations of words </a> to improve the models</li>
+                    <li>analyze the effect of <a href="https://github.com/teamdigitale/daf-deep-learning/blob/master/tuscany-acts-analysis/3-models/5-classifier-lstm-dataset.ipynb">using sequence of text </a></li>
+                    <li><a href="https://github.com/teamdigitale/daf-deep-learning/blob/master/tuscany-acts-analysis/3-models/6-hyper-params-tuning.ipynb">Hyper-Parameters Optimization</a></li>
+                    <li>how to deploy the model <a href="https://github.com/teamdigitale/daf-deep-learning/tree/master/tuscany-acts-analysis/web-api"> as a web service</a></li>
                   </ol>
-                What you can use below if the final model with parameters tuned. More detaails about what was done can be found <a href="">here</a>.
+                <p>Below there is the final model with parameters tuned. Further details about what was done can be found <a href="https://github.com/teamdigitale/daf-deep-learning/tree/master/tuscany-acts-analysis">here</a>.</p>
             </div>
 
             <div className="">
-              The classifier was trained to detect the following classes.
+                <p>The classifier was trained to detect the following classes.</p>
               <ClassTable></ClassTable>
-              You can see that when the classifier is not sure about the class its prediction probability will drop to values below 0.8.
+              When the classifier is not sure about the class its prediction probability will drop to values below 0.99.
             </div>
           </section>
 
-          <section >
+          <section>
             <h2 id="api" className="pt-5 pb-3">API</h2>
               <div className="card">
                 <div className="card-body">
-                  To consume the service via API: <code>curl -XPOST -H "Content-Type: application/json" -d &apos;&#123;"sentence":"sentence to be classified"&#125;&apos; </code>
+                  <p>To consume the service via API: <br/>
+                      <code>curl -XPOST -H "Content-Type: application/json" -d &apos;&#123;"sentence":"sentence to be classified"&#125;&apos; http://http://ml-api.westeurope.cloudapp.azure.com/predict</code>
+                  </p>
                 </div>
               </div>
           </section>
+          <section>
+            <div className="row">
+              <br/>
+            </div>
+          </section>
+          <section>
+              <footer className="blockquote-footer jumbotron-fluid ">
+                  <h5>
+                      <a href="https://teamdigitale.governo.it">Team Digitale</a> © 2018 Team Digitale.
+                      <span className="float-right">Powered by<a href="https://teamdigitale.governo.it">Team Digitale</a></span>
+                  </h5>
+              </footer>
+          </section>
         </div>
-
       </div>
     );
   }
