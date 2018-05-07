@@ -10,7 +10,7 @@ As case study we considered the documents published by [Regione Toscana Atti](ht
 
 The case study is composed by the following steps:
 
-1. [web service exploration](./notebook/web_service _exploration) : it describe how to get data from the service
+1. [web service exploration](./notebook/web_service_exploration) : it describe how to get data from the service
 1. document crawling: the script to crawl the documents
 2. data preprocessing: a set of jupyter notebook with data exploration and wrangling
 3. model creation: the approaches used to create the classification model.
