@@ -5,16 +5,15 @@ import nltk
 from nltk.corpus import stopwords
 import string
 import os
-import tensorflow as tf
 
 
 nltk.download('stopwords')
 nltk.download('punkt')
 
 pad_char = 0
-start_char=1
-oov_char=2
-index_from=3
+start_char = 1
+oov_char = 2
+index_from = 3
 
 base_path_ = os.path.dirname(os.path.abspath(__file__))
 
@@ -114,4 +113,4 @@ def load_data(path='data_dirigenti.npz', num_words=None, skip_top=0,
     x_val_new, y_val_new = select_indexes_(x_val, y_val, index_word_selected)
     x_test_new, y_test_new = select_indexes_(x_test, y_test, index_word_selected)
 
-    return (np.array(x_train_new), np.array(y_train_new)), (np.array(x_val_new), np.array(y_val_new)), (np.array(x_test_new), np.array(y_test_new))
+    return most_common_selected, (np.array(x_train_new), np.array(y_train_new)), (np.array(x_val_new), np.array(y_val_new)), (np.array(x_test_new), np.array(y_test_new))
