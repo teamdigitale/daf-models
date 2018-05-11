@@ -23,3 +23,4 @@ tuscany-acts-analysis/web-api/.idea
 logs
 .ropeproject/
 __pycache__
+daf-datasets/daf_datasets.egg-info
