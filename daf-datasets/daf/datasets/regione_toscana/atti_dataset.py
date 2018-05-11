@@ -35,7 +35,7 @@ def load_data(path='atti_dataset.npz', num_words=None, skip_top=0, seed=11235):
     have simply been skipped.
     """
     path = get_file(path,
-                    origin='https://github.com/fabiofumarola/daf-modelsdaf-datasets/raw/master/data/atti/{}'.format(path),
+                    origin='https://media.githubusercontent.com/media/teamdigitale/daf-models/master/daf-datasets/data/atti/{}'.format(path),
                     file_hash='bbb48e0f38e6dcb503c98ff868dd64c3')
 
     with np.load(path) as f:
@@ -89,7 +89,7 @@ def get_word_index(path='id_word_dict.json'):
         The word index dictionary.
     """
     path = get_file(path,
-                    origin='https://github.com/fabiofumarola/daf-modelsdaf-datasets/raw/master/data/atti/{}'.format(path),
+                    origin='https://media.githubusercontent.com/media/teamdigitale/daf-models/master/daf-datasets/data/atti/{}'.format(path),
                     file_hash='84073cc1bacd0925cb8f0581ba7e6acf')
     with open(path, 'r') as f:
         return json.load(f)
@@ -105,7 +105,7 @@ def get_label_index(path='label_index.json'):
         The word index dictionary.
     """
     path = get_file(path,
-                    origin='https://github.com/fabiofumarola/daf-modelsdaf-datasets/raw/master/data/atti/{}'.format(path),
+                    origin='https://media.githubusercontent.com/media/teamdigitale/daf-models/master/daf-datasets/data/atti/{}'.format(path),
                     file_hash='58be0cecc28337d919d71c8e198c213e')
     with open(path, 'r') as f:
         return json.load(f)

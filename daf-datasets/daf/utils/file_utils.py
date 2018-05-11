@@ -15,7 +15,7 @@ from six.moves.urllib.error import HTTPError
 from six.moves.urllib.error import URLError
 from six.moves.urllib.request import urlopen
 
-from ..utils.utils import Progbar
+from ..utils.progbar import Progbar
 
 if sys.version_info[2] == 2:
     def urlretrieve(url, filename, reporthook=None, data=None):

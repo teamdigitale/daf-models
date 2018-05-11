@@ -12,7 +12,6 @@ setup(
     url='https://github.com/teamdigitale/daf-datasets',
     install_requires=[
         'numpy',
-        'nltk',
         'request'
     ],
     classifiers=[
