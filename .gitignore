@@ -22,3 +22,4 @@ cc.it.300.*
 tuscany-acts-analysis/web-api/.idea
 logs
 .ropeproject/
+__pycache__

@@ -1,0 +1,17 @@
+README.md
+setup.py
+daf/__init__.py
+daf/datasets/__init__.py
+daf/datasets/atti_dataset.py
+daf/utils/__init__.py
+daf/utils/dataset_utils.py
+daf/utils/file_utils.py
+daf/utils/keras_util.py
+daf/utils/progbar.py
+daf_datasets.egg-info/PKG-INFO
+daf_datasets.egg-info/SOURCES.txt
+daf_datasets.egg-info/dependency_links.txt
+daf_datasets.egg-info/requires.txt
+daf_datasets.egg-info/top_level.txt
+tests/__init__.py
+tests/test.py
