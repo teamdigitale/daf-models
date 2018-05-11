@@ -21,3 +21,4 @@ tuscany-acts-analysis/3-models/logs/*
 cc.it.300.*
 tuscany-acts-analysis/web-api/.idea
 logs
+.ropeproject/
