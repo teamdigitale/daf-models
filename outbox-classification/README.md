@@ -10,8 +10,24 @@ As case study we considered the documents published by [Regione Toscana Atti](ht
 
 The case study is composed by the following steps:
 
-1. [web service exploration](./notebook/web_service_exploration) : it describe how to get data from the service
-1. document crawling: the script to crawl the documents
-2. data preprocessing: a set of jupyter notebook with data exploration and wrangling
-3. model creation: the approaches used to create the classification model.
-4. web service: how the serve the final model via rest api.
+1. [web service exploration](./notebook/web_service_exploration): it describe how to get data from the service
+2. document crawling: the script to crawl the documents
+3. data preprocessing: a set of jupyter notebook with data exploration and wrangling
+4. model creation: the approaches used to create the classification model.
+5. web service: how the serve the final model via rest api.
+
+## 2. Crawler
+
+In order to crawl all the documents from the api endpoint we can run the following scripts:
+
+```
+$ python src/crawler.py -from_year 1998 -to_year 2019 -save_path data/atti_dirigente -act_type atti_dirigente
+
+$ python src/crawler.py -from_year 1998 -to_year 2019 -save_path data/atti_giunta -act_type atti_giunta
+
+$ python src/crawler.py -from_year 1998 -to_year 2019 -save_path data/atti_presidente -act_type atti_presidente
+```
+
+### 3. Data Preprocessing
+
+ 
