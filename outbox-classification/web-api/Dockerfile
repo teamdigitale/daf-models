@@ -5,7 +5,7 @@ WORKDIR /app
 ADD model.hdf5 /app
 ADD requirements.txt /app
 ADD server.py /app
-ADD dataset /app/dataset
+ADD data /app/dataset
 ADD public /app/public
 
 RUN pip install --upgrade pip

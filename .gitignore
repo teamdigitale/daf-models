@@ -24,3 +24,10 @@ logs
 .ropeproject/
 __pycache__
 daf-datasets/daf_datasets.egg-info
+*.fasttext
+*.word2vec
+.idea
+outbox-classification/web-api/data/
+outbox-classification/notebook/models/__pycache__/
+outbox-classification/web-api/.idea
+outbox-classification/web-api/dataset/__pycache__/

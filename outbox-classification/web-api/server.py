@@ -1,37 +1,54 @@
-from keras.models import load_model
+import tensorflow as tf
 import numpy as np
 import flask
 from flask import request
 from flask_cors import CORS
-from dataset import atti_dirigenti
-import tensorflow as tf
 import os
+import json
 
 import nltk
-from nltk.tokenize import word_tokenize
+from nltk.corpus import stopwords
+from nltk.tokenize import RegexpTokenizer
 
 nltk.download('stopwords')
 nltk.download('punkt')
 
+pad_char = 0
+start_char=1
+oov_char=2
+
+tokenizer = RegexpTokenizer(r'\w+')
 
 def load():
     """ load the model and all the dictionary need
 
     """
-    global word_index, label_index, index_label, model, num_features, stop_words
-    word_index = atti_dirigenti.get_word_index()
-    label_index = atti_dirigenti.get_labels()
-    index_label = {v: k for k, v in label_index.items()}
+    global word_id_dict, id_label_dict, num_words, stop_words, model
 
-    stop_words = atti_dirigenti.get_stopwords()
+    punctuation = ['-', '"', "'", ':', ';', '(', ')', '[', ']', '{', '}', '’', '”', '“', '``', "''"]
+    stop_words = set(stopwords.words('italian'))
+    stop_words.update(punctuation)
+
+    with open('./data/id_word_dict.json', 'r') as f:
+        word_id_dict = json.load(f)
+
+    with open('./data/label_index.json', 'r') as f:
+        label_id_dict = json.load(f)
+        id_label_dict = {v: k for k, v in label_id_dict.items()}
 
     with tf.device('/cpu:0'):
-        model = load_model('./model.hdf5')
+        model = tf.keras.models.load_model('./data/final_model.hdf5')
+        model._make_predict_function()
+        print(model.summary())
 
-    num_features = model.input_shape[-1]
+    num_words = model.input_shape[-1]
 
 
-def tokenize_sentence(sentence, remove_stopwords=True, tokenizer=word_tokenize):
+def hasnumbers(value):
+    return any(c.isdigit() for c in value)
+
+
+def tokenize_sentence(sentence, remove_stopwords=True, tokenizer=tokenizer.tokenize):
     """
     Tokenize the sentence and remove stopwords if true
     :param sentence: the sentence to be tokenized
@@ -41,37 +58,48 @@ def tokenize_sentence(sentence, remove_stopwords=True, tokenizer=word_tokenize):
     """
     sentence = sentence.replace('`', ' ')
     sentence = sentence.replace("'", " ")
+    sentence = sentence.replace("”", ' ')
+    sentence = sentence.replace("“", ' ')
+    words = []
 
-    for word in tokenizer(sentence):
-        if remove_stopwords:
-            if word not in stop_words:
-                yield word.lower()
-        else:
-            yield word.lower()
+    for w in tokenizer(sentence):
+        if not hasnumbers(w) and len(w) > 2:
+            w = w.replace('_', '')
+            if remove_stopwords:
+                if w not in stop_words:
+                    words.append(w.lower())
+            elif w in stop_words or len(w) > 1:
+                words.append(w.lower())
+    yield words
 
 
-def sentence_to_idxs(tokenized_sentence, max_idx):
+def sentence_to_idxs(tokenized_sentence):
     """
-    convert a tokenized sencente into a sequence of idx
-    :param tokenized_sentece:
+    convert a tokenized sentence into a sequence of idx
+    :param tokenized_sentence:
     :param max_idx:
     :return:
     """
-    for w in tokenized_sentence:
-        if w in word_index and word_index[w] < max_idx:
-            yield word_index[w]
-        else:
-            yield atti_dirigenti.oov_char
+    results = []
+    for sample in tokenized_sentence:
+        encoded_sample = []
+        for w in sample:
+            if w in word_id_dict:
+                encoded_sample.append(word_id_dict[w])
+            else:
+                encoded_sample.append(oov_char)
+        results.append(encoded_sample)
+    return results
 
 
-def vectorize_sequences(sequences, dimension):
+def vectorize_sequences(sequences, num_words):
     """
 
     :param sequences:
     :param dimension:
     :return: sequences encoded as indicator arrays
     """
-    results = np.zeros((len(sequences), dimension))
+    results = np.zeros((len(sequences), num_words))
     for i, sequence in enumerate(sequences):
         results[i, sequence] = 1.
     return results
@@ -83,8 +111,8 @@ def sentence_pipeline(sentence):
     :return: the sentence into its vectorized form
     """
     tokenized = list(tokenize_sentence(sentence))
-    sequence = list(sentence_to_idxs(tokenized, num_features))
-    vectorized = vectorize_sequences([sequence], num_features)
+    sequence = list(sentence_to_idxs(tokenized))
+    vectorized = vectorize_sequences([sequence], num_words)
     return vectorized
 
 
@@ -119,11 +147,11 @@ def predict():
                 with tf.device('/cpu:0'):
                     predictions = model.predict(vectorized)
 
-                predictions_dict = {index_label[i]: "{:.10f}".format(v) for i, v in enumerate(predictions[0])}
+                predictions_dict = {id_label_dict[i]: "{:.10f}".format(v) for i, v in enumerate(predictions[0])}
 
                 predicted_class = np.argmax(predictions)
 
-                data['prediction'] =  str(index_label[predicted_class])
+                data['prediction'] =  str(id_label_dict[predicted_class])
                 data['prediction_prob'] = "{:.10f}".format(predictions[0, predicted_class])[:5]
                 data['prediction_probabilities'] = predictions_dict
                 data['success'] = True
@@ -133,6 +161,7 @@ def predict():
             data['message'] = 'missing body'
 
     except Exception as e:
+        print(e)
         data['message'] = 'got error {}'.format(e)
 
     return flask.jsonify(data)

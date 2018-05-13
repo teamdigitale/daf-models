@@ -23,7 +23,7 @@ def to_one_hot(labels, num_classes):
     return results
 
 
-def dataset_generator_fun(x, y, x_transformer,
+def dataset_generator_fun(x, y, x_transformer, y_transformer,
                    batch_size, min_index=None, max_index=None, shuffle=False):
 
     if not min_index:
@@ -43,9 +43,8 @@ def dataset_generator_fun(x, y, x_transformer,
             yield (
                 x_transformer(
                     x[min_index + n*batch_size: min_index + (n+1)*batch_size])(),
-                to_one_hot(
-                    y[min_index + n*batch_size: min_index + (n+1)*batch_size],
-                    num_classes)
+                y_transformer(
+                    y[min_index + n*batch_size: min_index + (n+1)*batch_size])()
             )
         else:
             i = 0
@@ -53,9 +52,8 @@ def dataset_generator_fun(x, y, x_transformer,
             yield (
                 x_transformer(
                     x[min_index + n*batch_size: max_index])(),
-                to_one_hot(
-                    y[min_index + n*batch_size: max_index], num_classes
-                )
+                y_transformer(
+                    y[min_index + n*batch_size: max_index])()
             )
         if shuffle:
             indexes = np.array(range(min_index, max_index))
