@@ -31,3 +31,5 @@ outbox-classification/web-api/data/
 outbox-classification/notebook/models/__pycache__/
 outbox-classification/web-api/.idea
 outbox-classification/web-api/dataset/__pycache__/
+outbox-classification/data/w2x_metadata
+outbox-classification/data/
