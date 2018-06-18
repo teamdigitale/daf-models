@@ -33,3 +33,4 @@ outbox-classification/web-api/.idea
 outbox-classification/web-api/dataset/__pycache__/
 outbox-classification/data/w2x_metadata
 outbox-classification/data/
+outbox-classification/src/__pycache__/

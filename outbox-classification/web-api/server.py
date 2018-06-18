@@ -38,7 +38,7 @@ def load():
 
     with tf.device('/cpu:0'):
         model = tf.keras.models.load_model('./data/final_model.hdf5')
-        model._make_predict_function()
+        # model._make_predict_function()
         print(model.summary())
 
     num_words = model.input_shape[-1]

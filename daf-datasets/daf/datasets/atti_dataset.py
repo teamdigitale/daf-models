@@ -38,7 +38,7 @@ def load_data(path='atti_dataset.npz', num_words=None, skip_top=0, seed=11235):
     path = get_file(path,
                     origin='https://media.githubusercontent.com/media/teamdigitale/daf-models/master/daf-datasets/data/atti/{}'.format(
                         path),
-                    file_hash='d6eaee8bd106697b93982053ec65aad1')
+                    file_hash='57c00dff947adfcb5b34c17b599eea0a')
 
     with np.load(path) as f:
         x_train, y_train = f['x_train'], f['y_train']
@@ -93,7 +93,7 @@ def get_word_index(path='id_word_dict.json'):
     path = get_file(path,
                     origin='https://media.githubusercontent.com/media/teamdigitale/daf-models/master/daf-datasets/data/atti/{}'.format(
                         path),
-                    file_hash='1d19902a0dd939d3b4e1eb61144aaa45')
+                    file_hash='23aad653cb2449929f157c2e72122815')
     with open(path, 'r') as f:
         return json.load(f)
 
