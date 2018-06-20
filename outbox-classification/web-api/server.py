@@ -1,3 +1,4 @@
+from keras import models
 import tensorflow as tf
 import numpy as np
 import flask
@@ -30,15 +31,16 @@ def load():
     stop_words.update(punctuation)
 
     with open('./data/id_word_dict.json', 'r') as f:
-        word_id_dict = json.load(f)
+        id_word_dict = json.load(f)
+        word_id_dict = {v:int(k) for k,v in id_word_dict.items()}
 
     with open('./data/label_index.json', 'r') as f:
         label_id_dict = json.load(f)
         id_label_dict = {v: k for k, v in label_id_dict.items()}
 
     with tf.device('/cpu:0'):
-        model = tf.keras.models.load_model('./data/final_model.hdf5')
-        # model._make_predict_function()
+        model = models.load_model('./data/dropout_model.hdf5')
+        model._make_predict_function()
         print(model.summary())
 
     num_words = model.input_shape[-1]
@@ -147,7 +149,7 @@ def predict():
                 with tf.device('/cpu:0'):
                     predictions = model.predict(vectorized)
 
-                predictions_dict = {id_label_dict[i]: "{:.10f}".format(v) for i, v in enumerate(predictions[0])}
+                predictions_dict = {id_label_dict[i]: "{:.10f}".format(v) for i, v in enumerate(predictions[0]) if i in id_label_dict}
 
                 predicted_class = np.argmax(predictions)
 
@@ -161,7 +163,6 @@ def predict():
             data['message'] = 'missing body'
 
     except Exception as e:
-        print(e)
         data['message'] = 'got error {}'.format(e)
 
     return flask.jsonify(data)
