@@ -31,13 +31,15 @@ $ cd web-ui
 $ npp start
 ```
 
+#### Build the client ui
+
 
 ## build a docker image
 
 ```bash
 
 export ORGANIZATION=nexus.teamdigitale.test
-export VERSION=0.0.7
+export VERSION=0.0.8
 docker build -t $ORGANIZATION/ml-api:$VERSION .
 docker push $ORGANIZATION/ml-api:$VERSION
 ```

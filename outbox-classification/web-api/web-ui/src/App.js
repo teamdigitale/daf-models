@@ -10,7 +10,7 @@ class App extends Component {
             <div className="App">
                 <header className="bg-primary">
                     <div className="container text-white pt-6 pb-6">
-                        <h4 className="display-3 mb-0">Regional Acts Classifier</h4>
+                        <h4 className="display-3 mb-0">Acts Classifier for Regione Toscana</h4>
                         <h5 className="m-0 ml-1">This pages shows a demo of an automatic classifier of the
                             administrative acts published by Regione Toscana</h5>
                     </div>
@@ -64,12 +64,12 @@ class App extends Component {
                     <section>
                         <h2 id="approach" className="pt-5 pb-3">Approach</h2>
                         <div className="">
-                            <p>In order to build the classifier we crawled 152455 documents, which were split into
+                            <p>In order to build the classifier we crawled 184.381 documents, which were split into
                                 training, validation and test set. The model is built using a neural network implemented
                                 in <a href="https://keras.io/">Keras</a>. The steps done to build the model were:</p>
                             <ol>
                                 <li><a
-                                    href="https://github.com/teamdigitale/daf-models/blob/master/outbox-classification/notebook/data_preprocessing.ipynb">data
+                                    href="https://github.com/teamdigitale/daf-models/blob/master/outbox-classification/notebook/preprocessing/data_preprocessing.ipynb">data
                                     wrangling and exploration</a></li>
                                 <li>to build a <a
                                     href="https://github.com/teamdigitale/daf-models/blob/master/outbox-classification/notebook/1_baseline.ipynb">basic
@@ -111,7 +111,7 @@ class App extends Component {
                                 <p>To consume the service via API: <br/>
                                     <code>curl -XPOST -H "Content-Type: application/json"
                                         -d &apos;&#123;"sentence":"sentence to be
-                                        classified"&#125;&apos; http://http://ml-api.westeurope.cloudapp.azure.com/predict</code>
+                                        classified"&#125;&apos; https://ml-api.daf.teamdigitale.it/predict</code>
                                 </p>
                             </div>
                         </div>
