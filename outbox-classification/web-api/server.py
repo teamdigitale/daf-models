@@ -1,4 +1,3 @@
-from keras import models
 import tensorflow as tf
 import numpy as np
 import flask
@@ -39,7 +38,7 @@ def load():
         id_label_dict = {v: k for k, v in label_id_dict.items()}
 
     with tf.device('/cpu:0'):
-        model = models.load_model('./data/dropout_model.hdf5')
+        model = tf.keras.models.load_model('./data/dropout_model.hdf5')
         model._make_predict_function()
         print(model.summary())
 

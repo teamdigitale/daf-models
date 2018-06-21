@@ -39,7 +39,12 @@ $ npp start
 ```bash
 
 export ORGANIZATION=nexus.teamdigitale.test
-export VERSION=0.0.8
+export VERSION=0.1.0
+docker build -t $ORGANIZATION/ml-api:$VERSION .
+docker push $ORGANIZATION/ml-api:$VERSION
+
+export ORGANIZATION=nexus.daf.teamdigitale.it
+export VERSION=0.1.1
 docker build -t $ORGANIZATION/ml-api:$VERSION .
 docker push $ORGANIZATION/ml-api:$VERSION
 ```
@@ -47,6 +52,5 @@ docker push $ORGANIZATION/ml-api:$VERSION
 To run the docker images
 
 ```
-docker run -dt --name mp-api -p 5000:5000 $ORGANIZATION/ml-api:$VERSION
+docker run -dt --name ml-api -p 5000:5000 $ORGANIZATION/ml-api:$VERSION
 ```
-

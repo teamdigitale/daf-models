@@ -12,7 +12,6 @@ spec:
     name: http
   selector:
     app: ml-api
-
 ---
 
 apiVersion: apps/v1beta2
@@ -31,12 +30,15 @@ spec:
     spec:
       containers:
       - name: ml-api
-        image: nexus.teamdigitale.test/ml-api:0.0.7
+        image: nexus.teamdigitale.test/ml-api:0.1.1
         ports:
         - name: http
           containerPort: 5000
         resources:
           limits:
-            memory: 512Mi
+            memory: 2Gi
+            cpu: 2
+          requests:
+            memory: 2Gi
       nodeSelector:
         nifi: "false"
