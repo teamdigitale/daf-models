@@ -50,11 +50,3 @@ To run the docker images
 docker run -dt --name mp-api -p 5000:5000 $ORGANIZATION/ml-api:$VERSION
 ```
 
-```
-curl -i -X POST \
-  --url http://kong-admin.default.svc.cluster.local:8001/apis/ \
-  --data 'name=ml-api' \
-  --data 'uris=/ml-api' \
-  --data 'upstream_url=http://ml-api-service.default.svc.cluster.local:5000'
-
-```
