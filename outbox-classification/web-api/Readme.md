@@ -39,7 +39,7 @@ $ npp start
 ```bash
 
 export ORGANIZATION=nexus.teamdigitale.test
-export VERSION=0.1.0
+export VERSION=0.1.1
 docker build -t $ORGANIZATION/ml-api:$VERSION .
 docker push $ORGANIZATION/ml-api:$VERSION
 
