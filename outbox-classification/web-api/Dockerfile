@@ -2,10 +2,10 @@ FROM  python:3.6
 
 WORKDIR /app
 
-COPY requirements.txt /app
-COPY server.py /app
-COPY data /app/data
-COPY public /app/public
+COPY outbox-classification/web-api/requirements.txt /app
+COPY outbox-classification/web-api/server.py /app
+COPY outbox-classification/web-api/data /app/data
+COPY outbox-classification/web-api/public /app/public
 
 RUN pip install --upgrade pip
 RUN pip install -r requirements.txt
