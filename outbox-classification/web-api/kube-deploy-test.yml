@@ -28,6 +28,8 @@ spec:
       labels:
         app: ml-api
     spec:
+      imagePullSecrets:
+        - name: regsecret
       containers:
       - name: ml-api
         image: nexus.teamdigitale.test/ml-api:0.1.1
@@ -40,5 +42,11 @@ spec:
             cpu: 2
           requests:
             memory: 2Gi
-      nodeSelector:
-        nifi: "false"
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+              - matchExpressions:
+                - key: "nifi"
+                  operator: NotIn
+                  values: ["true"]
