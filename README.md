@@ -9,6 +9,8 @@ To create the environment run the following command (after miniconda is installe
 $ conda env create -f environment.yaml
 ```
 
+Docker & Kubernetes instructions are found [here](./outbox-classification/web-api/).
+
 ## Projects
 
 1. Document Categorization
