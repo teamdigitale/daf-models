@@ -40,5 +40,11 @@ spec:
             cpu: 2
           requests:
             memory: 2Gi
-      nodeSelector:
-        nifi: "false"
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+              - matchExpressions:
+                - key: "nifi"
+                  operator: NotIn
+                  values: ["true"]
